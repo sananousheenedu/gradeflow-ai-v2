@@ -144,7 +144,7 @@ def _vision_ocr_batch(client: Groq, model: str, image_bytes_list: List[bytes], s
     return f"\n--- Pages {start_page}-{start_page + len(image_bytes_list) - 1} ---\n{response.choices[0].message.content}"
 
 
-def vision_ocr_pdf(api_key: str, pdf_bytes: bytes, model: str, max_pages: int = 30, batch_size: int = 5) -> str:
+def vision_ocr_pdf(api_key: str, pdf_bytes: bytes, model: str, max_pages: int = 30, batch_size: int = 3) -> str:
     """OCR a scanned/handwritten PDF in small vision batches."""
     images = render_pdf_pages(pdf_bytes, max_pages=max_pages)
     if not images:
