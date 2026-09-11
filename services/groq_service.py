@@ -139,7 +139,7 @@ def _vision_ocr_batch(client: Groq, model: str, image_bytes_list: List[bytes], s
         model=model,
         messages=[{"role": "user", "content": content}],
         temperature=0,
-        max_completion_tokens=7000,
+        max_completion_tokens=850,
     )
     return f"\n--- Pages {start_page}-{start_page + len(image_bytes_list) - 1} ---\n{response.choices[0].message.content}"
 
